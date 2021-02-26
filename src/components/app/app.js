@@ -12,6 +12,11 @@ const Container = styled.div`
     position: relative;
     padding: 60px 40px 40px 40px;
     font-family: ${FONT_FAMILY};
+
+    @media (min-width: 992px) {
+        max-width: 960px;
+        margin: 0 auto;
+    }
 `;
 
 const App = (props) => {
@@ -23,13 +28,15 @@ const App = (props) => {
     }
 
     return (
+        <>
         <Container>
             <Header/>
             <List/>
             {isEdit ? null : <Button type="plus" click={btnClickHandler}/> } 
-            {modalCreateIsOpen ? <Modal type="create"/> : null}
-            {modalEditIsOpen ? <Modal type="create"/> : null}
         </Container>
+        {modalCreateIsOpen ? <Modal type="create"/> : null}
+        {modalEditIsOpen ? <Modal type="create"/> : null}
+        </>
     );
 }
 

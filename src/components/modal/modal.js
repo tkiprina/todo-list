@@ -27,6 +27,13 @@ const ModalContainer = styled.div`
     background: #FFFFFF;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
     border-radius: 40px 40px 0px 0px;
+
+    @media (min-width: 992px) {
+        max-width: 800px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0 auto;
+    }
 `;
 
 const BtnContainer = styled.div`
