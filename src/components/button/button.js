@@ -56,6 +56,7 @@ const CloseBtn = styled.button`
     height: 40px;
     background: #F2F2F2;
     border-radius: 10px;
+    border: none;
     font-family: Gilroy;
     font-style: normal;
     font-weight: 500;
@@ -78,6 +79,7 @@ const SaveBtn = styled.button`
     color: #FFFFFF;
     background: #23A3FF;
     border-radius: 10px;
+    border: none;
 `;
 
 const Button = (props) => {

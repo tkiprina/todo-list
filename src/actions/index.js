@@ -1,9 +1,9 @@
 import {SELECT_ITEM, REMOVE_ITEM, ADD_ITEM, EDIT_ITEM, OPEN_MODAL_EDIT, OPEN_MODAL_CREATE, CHANGE_MODE, CLOSE_MODAL} from '../consts';
 
-const selectItem = (id) => {
+const selectItem = (item) => {
     return {
         type: SELECT_ITEM,
-        payload: id
+        payload: item.id
     };
 };
 

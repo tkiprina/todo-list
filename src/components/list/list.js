@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import ListItem from '../list-item/list-item';
 
 const Ul = styled.ul`
     margin: 47px 0 0 0;
@@ -22,22 +24,37 @@ const Placeholder = styled.div`
 `;
 
 const getItems = (items) => {
+    
+    if (Array.isArray(items)) {
+        return items.map( item => (
+            <ListItem key={item.id} item={item}/>
+        ));
+    }
 
+    return null;
 };
 
 const List = (props) => {
 
-    if (!props.items || props.items.length<1) {
+    const {items} = props;
+
+    if (!items || items.length<1) {
         return (
             <Placeholder>Список задач пуст</Placeholder>
         )
     }
-    
+
     return (
         <Ul>
-            {getItems()}
+            {getItems(items)}
         </Ul>
     )
 }
 
-export default List;
+const mapStateToProps = (state) => ({
+    items: state.items,
+    editItem: state.editItem
+});
+
+
+export default connect(mapStateToProps)(List);

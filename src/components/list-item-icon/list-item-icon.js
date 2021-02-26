@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const RemoveIcon = styled.button`
     display:block;
+    position: relative;
     width: 22px;
     height: 22px;
     margin-right: 14px;
@@ -12,6 +13,9 @@ const RemoveIcon = styled.button`
 
     &:before {
         content: '';
+        position: absolute;
+        left: 6px;
+        top: 10px;
         width: 10px;
         height: 2px;
         background: #fff;
@@ -22,7 +26,7 @@ const CheckedIcon = styled.div`
     width: 22px;
     height: 22px;
     margin-right: 14px;
-    padding: 5px;
+    padding: 3px;
     border-radius: 11px;
     border: 2px solid #D9D9D9;
     box-sizing: border-box;
@@ -31,6 +35,7 @@ const CheckedIcon = styled.div`
 const Selected = styled.div`
     width: 12px;
     height: 12px;
+    border-radius: 6px;
     background: #23A3FF;
 `;
 

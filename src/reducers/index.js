@@ -30,7 +30,7 @@ const reducer = (state = inintialState, action) => {
         case ADD_ITEM: 
         {
             const text = action.payload,
-                  id = state.currentId++;
+                  id = state.currentId+1;
 
             const newItem = {
                 text,

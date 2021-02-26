@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import {connect} from 'react-redux';
+import {changeMode} from '../../actions';
 import Button from '../button/button';
 
 const View = styled.header`
@@ -19,12 +21,29 @@ const View = styled.header`
 `;
 
 const Header = (props) => {
+
+    const {changeMode, isEdit} = props;
+    const text = isEdit ? 'Отменить' : 'Править';
+
+    const btnClickHandler = () => {
+        changeMode();
+    }
+
     return (
         <View>
             <h1>Сегодня</h1>
-            <Button type="mode">Править</Button>
+            <Button type="mode" click={btnClickHandler}>{text}</Button>
         </View>    
     );
 }
 
-export default Header;
+const mapStateToProps = (state) => {
+    return {
+        isEdit: state.editItemMode,
+    }
+};
+
+
+const mapDispatchToProps = {changeMode};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
