@@ -6,11 +6,12 @@ import Header from '../header/header';
 import Button from '../button/button';
 import List from '../list/list';
 import Modal from '../modal/modal';
-//import Modal from '../modal/modal';
+import {FONT_FAMILY} from '../../consts';
 
 const Container = styled.div`
     position: relative;
     padding: 60px 40px 40px 40px;
+    font-family: ${FONT_FAMILY};
 `;
 
 const App = (props) => {

@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import {GREY, BLUE, FONT_FAMILY} from '../../consts';
 
 const ModeBtn = styled.button`
     display: block;
     width: 86px;
     height: 27px;
-    background: #F2F2F2;
+    background: ${GREY};
     border-radius: 4px;
     border: none;
-    font-family: Gilroy;
+    font-family: ${FONT_FAMILY};
     font-style: normal;
     font-weight: 500;
     font-size: 14px;
@@ -35,8 +36,7 @@ const PlusBtn = styled.button`
         left: 20px;
         width: 20px;
         height: 2px;
-        
-        background: #23A3FF;
+        background: ${BLUE};
     }
 
     &:after {
@@ -46,40 +46,35 @@ const PlusBtn = styled.button`
         top: 21px;
         width: 2px;
         height: 20px;
-        background: #23A3FF;
+        background: ${BLUE};
     }
 `;
 
-const CloseBtn = styled.button`
+const btnStyles = `
     display:block;
     width: 137px;
     height: 40px;
-    background: #F2F2F2;
     border-radius: 10px;
     border: none;
-    font-family: Gilroy;
+    font-family: ${FONT_FAMILY};
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 140%;
     letter-spacing: 0.01em;
+`;
+
+const CloseBtn = styled.button`
+    ${btnStyles}
+    background: ${GREY};
     color: #4D4D4D;
 `;
 
 const SaveBtn = styled.button`
-    display:block;
-    width: 137px;
-    height: 40px;
-    font-family: Gilroy;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 140%;
-    letter-spacing: 0.01em;
+    ${btnStyles}
     color: #FFFFFF;
-    background: #23A3FF;
-    border-radius: 10px;
-    border: none;
+    background: ${BLUE};
+
 `;
 
 const Button = (props) => {

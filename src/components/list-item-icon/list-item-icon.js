@@ -1,15 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
+import { RED, BLUE} from '../../consts';
 
-const RemoveIcon = styled.button`
+const iconStyle = `
     display:block;
     position: relative;
     width: 22px;
     height: 22px;
     margin-right: 14px;
     border-radius: 11px;
+`;
+
+const RemoveIcon = styled.button`
+    ${iconStyle}
     border: none;
-    background: #E85C5C;
+    background: ${RED};
 
     &:before {
         content: '';
@@ -23,11 +28,8 @@ const RemoveIcon = styled.button`
 `;
 
 const CheckedIcon = styled.div`
-    width: 22px;
-    height: 22px;
-    margin-right: 14px;
+    ${iconStyle}
     padding: 3px;
-    border-radius: 11px;
     border: 2px solid #D9D9D9;
     box-sizing: border-box;
 `;
@@ -36,7 +38,7 @@ const Selected = styled.div`
     width: 12px;
     height: 12px;
     border-radius: 6px;
-    background: #23A3FF;
+    background: ${BLUE};
 `;
 
 
@@ -49,7 +51,7 @@ const ListIcon = (props) => {
     }
 
     return (
-        <CheckedIcon>
+        <CheckedIcon onClick={props.click}>
             {props.selected ? <Selected/> : ''}
         </CheckedIcon>
     );

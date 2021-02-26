@@ -17,7 +17,7 @@ const Item = styled.li`
 
 const ListItem = (props) => {
 
-    const {item, isEdit, openModalEdit, selectItem, removeItem} = props;
+    const {item, selected, isEdit, openModalEdit, selectItem, removeItem} = props;
 
     const itemClickHandler = () => {
         if (isEdit) {
@@ -28,13 +28,17 @@ const ListItem = (props) => {
     }
 
     const iconClickHandler = () => {
-        removeItem(item.id);
+        if (isEdit) {
+            removeItem(item.id);
+        } else {
+            selectItem(item);
+        }
     }
 
     return (
         <Item>
-            <ListIcon isEdit={isEdit} selected={item.selected} click={iconClickHandler}/>
-            <span onClick={itemClickHandler}>{item.text}</span>
+            <ListIcon isEdit={isEdit} selected={selected} click={iconClickHandler}/>
+            <span onClick={itemClickHandler}>{props.children}</span>
         </Item>
     );
 }

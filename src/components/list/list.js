@@ -2,37 +2,27 @@ import React from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import ListItem from '../list-item/list-item';
+import {FONT_FAMILY} from '../../consts';
+
+const fontStyle = `
+    font-family: ${FONT_FAMILY};
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+`;
 
 const Ul = styled.ul`
     margin: 47px 0 0 0;
     padding: 0;
     list-style: none;
-    font-family: Gilroy;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 120%;
+    ${fontStyle}
 `;
 
 const Placeholder = styled.div`
     margin: 49px 0 0 0;
-    font-family: Gilroy;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 120%;
+    ${fontStyle}
 `;
-
-const getItems = (items) => {
-    
-    if (Array.isArray(items)) {
-        return items.map( item => (
-            <ListItem key={item.id} item={item}/>
-        ));
-    }
-
-    return null;
-};
 
 const List = (props) => {
 
@@ -46,7 +36,11 @@ const List = (props) => {
 
     return (
         <Ul>
-            {getItems(items)}
+            {
+                items.map((item) => (
+                    <ListItem key={item.id} selected={item.selected} item={item}>{item.text}</ListItem>
+                ))
+            }
         </Ul>
     )
 }

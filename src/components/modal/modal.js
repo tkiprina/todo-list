@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import styled from 'styled-components';
 import {connect} from 'react-redux';
 import {closeModal, addItem, editItem} from '../../actions';
+import {RED} from '../../consts';
 
 import Button from '../button/button';
 
@@ -34,28 +35,30 @@ const BtnContainer = styled.div`
     margin-top: 30px;
 `;
 
-const Area = styled.textarea`
+const inputStyle = `
     width: 100%;
-    min-height: 160px;
-    padding: 20px;
     border: 2px solid #E6E6E6;
     box-sizing: border-box;
     border-radius: 10px;
+    esize: none;
+`;
+
+const Area = styled.textarea`
+    min-height: 160px;
+    padding: 20px;
+    ${inputStyle}
 `;
 
 const Input = styled.textarea`
-    width: 100%;
     min-height: 50px;
     padding: 14px 20px;
-    border: 2px solid #E6E6E6;
-    box-sizing: border-box;
-    border-radius: 10px;
+    ${inputStyle}
 `;
 
 const NotValidLabel = styled.span`
     display:block;
     font-size: 12px;
-    color: #E85C5C;
+    color: ${RED};
 `;
 
 class Modal extends Component {
